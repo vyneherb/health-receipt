@@ -43,24 +43,28 @@
 }
 html,body{height:100%}
 body{font-family:var(--sans);background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-/* 로딩 카드와 결과표(인쇄물)는 픽셀 서체 유지 */
-#analyzing,#result{font-family:var(--pixel)}
+/* 인트로·로딩·결과표는 픽셀 서체. 설문(접수·문항) 화면만 Wanted Sans */
+#intro,#analyzing,#result{font-family:var(--pixel)}
+/* 인트로에서 가독성 지적된 문단만 Wanted Sans */
+#intro .sub,#intro .charCap,#intro .perk,#intro .slotCap,#intro .note{font-family:var(--sans)}
 #app{min-height:100dvh;display:flex;flex-direction:column}
 .screen{display:none;flex:1;flex-direction:column}
 .screen.on{display:flex}
 
 /* ---------- 버튼 (배경 전부 전달 에셋) ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-weight:700;
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-weight:400;
   border:0;cursor:pointer;border-radius:0;background:center/100% 100% no-repeat;
   transition:transform .1s ease,filter .12s}
 .btn:active{transform:scale(.97)}
 .btn:disabled{opacity:.5}
 .btn.wide{width:100%}
+#intake .btn,#quiz .btn{font-weight:700}
 /* 기본(라임) 266x42 · 17pt */
 .btn.cta,.btn#toQuiz,.btn.kakao{background-image:url("assets/main_tab_3.png");
   color:var(--ink);font-size:17px;height:42px;max-width:var(--col)}
 /* 보조 130x33 · 12pt — 좌/우 에셋 */
-.btn.ghost{background-image:url("assets/main_tab_4_l.png");color:var(--tx2);font-size:13px;height:33px}
+.btn.ghost{background-image:url("assets/main_tab_4_l.png");color:var(--tx2);font-size:12px;height:33px}
+#intake .btn.ghost,#quiz .btn.ghost{font-size:13px}
 .introShare .btn.ghost:last-child,.acts2 .btn.ghost:last-child{background-image:url("assets/main_tab_4_r.png")}
 .toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,20px);background:var(--lime);color:var(--band);
   font-family:var(--sans);font-weight:600;font-size:13.5px;padding:12px 20px;opacity:0;pointer-events:none;
@@ -69,8 +73,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);-webkit-font-s
 
 /* ---------- 상단 띠 ---------- */
 .statusbar{width:100%;display:flex;justify-content:space-between;align-items:center;
-  background:var(--band);padding:9px 14px;margin-bottom:30px;font-size:11px;font-weight:600;color:var(--tx)}
-.statusbar span:last-child{font-size:10px;font-weight:500}
+  background:var(--band);padding:9px 14px;margin-bottom:30px;font-size:8px;color:var(--tx)}
+.statusbar span:last-child{font-size:7px}
 .statusbar .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lime);
   margin-right:7px;vertical-align:0;box-shadow:0 0 5px rgba(199,236,75,.9);animation:blink 1.1s steps(1,end) infinite}
 @keyframes blink{0%,49%{background:var(--lime);box-shadow:0 0 5px rgba(199,236,75,.9)}
@@ -84,9 +88,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--tx);-webkit-font-s
 /* ---------- 인트로 ---------- */
 #intro{align-items:center;justify-content:flex-start;padding:0 0 40px;text-align:center}
 #intro .logo{width:100px;margin-bottom:20px}
-#intro .today{display:inline-flex;justify-content:center;align-items:center;color:var(--lime);font-size:12px;font-weight:600;
+#intro .today{display:inline-flex;justify-content:center;align-items:center;color:var(--lime);font-size:11px;
   background:url("assets/main_tab_1.png") center/100% 100% no-repeat;width:200px;height:20px;margin-bottom:20px}
-#intro h1{font-size:27px;font-weight:800;line-height:1.4;letter-spacing:-.02em;margin-bottom:14px;word-break:keep-all}
+#intro h1{font-size:26px;font-weight:400;line-height:1.42;margin-bottom:14px;word-break:keep-all}
 #intro h1 em{font-style:normal;color:var(--lime)}
 #intro .sub{font-size:13px;font-weight:500;line-height:1.7;color:var(--tx);margin-bottom:20px;word-break:keep-all}
 #intro .sub b{color:var(--lime);font-weight:700}
